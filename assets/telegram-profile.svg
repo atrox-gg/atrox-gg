@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" role="img" aria-labelledby="title">
+  <title id="title">Telegram profile</title>
+  <rect x="1" y="1" width="30" height="30" rx="10" fill="#111820" stroke="#283541" stroke-width="1"/>
+  <path d="M25.74 8.14 22.2 24.8c-.27 1.18-.97 1.47-1.97.91l-5.44-4.01-2.62 2.52c-.29.29-.53.53-1.08.53l.39-5.54 10.08-9.1c.44-.39-.1-.61-.68-.22L8.42 17.86 3.1 16.2c-1.16-.36-1.18-1.16.24-1.72L24.1 6.55c.96-.35 1.8.23 1.64 1.59Z" fill="#8CA6B5"/>
+</svg>
