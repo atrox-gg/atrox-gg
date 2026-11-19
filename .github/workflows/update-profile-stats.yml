@@ -134,7 +134,7 @@ jobs:
               path = Path(filename)
               svg = path.read_text(encoding="utf-8")
               old = 'transform="translate(125, -45)"'
-              new = 'transform="translate(125, -69)"'
+              new = 'transform="translate(125, -57)"'
 
               if old in svg:
                   path.write_text(svg.replace(old, new, 1), encoding="utf-8")
