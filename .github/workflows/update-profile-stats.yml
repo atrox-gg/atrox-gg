@@ -135,49 +135,48 @@ jobs:
               path = Path(filename)
               svg = path.read_text(encoding="utf-8")
 
-              # The outer body is shifted down by 25px in the generated SVG.
-              # Remove that shift so the donut can use the full card viewport.
-              body_pattern = r'(data-testid="main-card-body"\\s+transform=")translate\\(0,\\s*25\\)(")'
+              # Remove the global 25px shift from the card content.
+              body_pattern = r'(data-testid="main-card-body"\s+transform=")translate\(0,\s*25\)(")'
               svg, body_count = re.subn(
                   body_pattern,
-                  r'\\g<1>translate(0, 0)\\2',
+                  r'\g<1>translate(0, 0)\2',
                   svg,
                   count=1,
               )
-              if body_count == 0 and not re.search(
-                  r'data-testid="main-card-body"\\s+transform="translate\\(0,\\s*0\\)"',
+              body_already_aligned = re.search(
+                  r'data-testid="main-card-body"\s+transform="translate\(0,\s*0\)"',
                   svg,
-              ):
+              )
+              if body_count == 0 and not body_already_aligned:
                   if 'data-testid="lang-donut"' in svg:
-                      raise SystemExit(f"Could not normalize main card position in {filename}")
+                      raise SystemExit("Could not normalize main card position in " + filename)
 
-              # Keep the language labels where they were; move only that branch down.
+              # Move the language-label branch down by the same 25px.
               labels_pattern = (
-                  r'(<svg data-testid="lang-items" x="25">\\s*'
-                  r'<g transform="translate\\(0, 0\\)">\\s*)'
-                  r'<g transform="translate\\(0, 0\\)">'
+                  r'(<svg data-testid="lang-items" x="25">\s*'
+                  r'<g transform="translate\(0, 0\)">\s*)'
+                  r'<g transform="translate\(0, 0\)">'
               )
               svg, labels_count = re.subn(
                   labels_pattern,
-                  r'\\1<g transform="translate(0, 25)">',
+                  r'\1<g transform="translate(0, 25)">',
                   svg,
                   count=1,
               )
               labels_already_aligned = re.search(
-                  r'<svg data-testid="lang-items" x="25">\\s*'
-                  r'<g transform="translate\\(0, 0\\)">\\s*'
-                  r'<g transform="translate\\(0, 25\\)">',
+                  r'<svg data-testid="lang-items" x="25">\s*'
+                  r'<g transform="translate\(0, 0\)">\s*'
+                  r'<g transform="translate\(0, 25\)">',
                   svg,
               )
               if labels_count == 0 and not labels_already_aligned:
                   if 'data-testid="lang-donut"' in svg:
-                      raise SystemExit(f"Could not isolate language labels in {filename}")
+                      raise SystemExit("Could not isolate language labels in " + filename)
 
-              # Reset only the donut group's offset. Its native geometry then fits
-              # inside the nested SVG viewport without cutting off either edge.
+              # Keep the donut at its native offset; the label branch is independent.
               chart_pattern = (
-                  r'<g transform="translate\\(125,\\s*-?\\d+\\)">'
-                  r'(?=\\s*<svg width="410" height="410">)'
+                  r'<g transform="translate\(125,\s*-?\d+\)">'
+                  r'(?=\s*<svg width="410" height="410">)'
               )
               svg, chart_count = re.subn(
                   chart_pattern,
@@ -186,10 +185,10 @@ jobs:
                   count=1,
               )
               if chart_count == 0 and 'data-testid="lang-donut"' in svg:
-                  raise SystemExit(f"Could not locate donut chart group in {filename}")
+                  raise SystemExit("Could not locate donut chart group in " + filename)
 
               path.write_text(svg, encoding="utf-8")
-              print(f"Aligned language chart in {filename}")
+              print("Aligned language chart in " + filename)
 
       - name: Commit generated profile visuals
         run: |
