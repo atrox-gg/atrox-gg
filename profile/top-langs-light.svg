@@ -1,9 +1,221 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="360" height="165" viewBox="0 0 360 165" role="img" aria-labelledby="title desc">
-  <title id="title">Top languages</title>
-  <desc id="desc">No language data is available yet. This card will show programming languages when code repositories are available.</desc>
-  <rect width="360" height="165" rx="5" fill="#FFFFFF"/>
-  <circle cx="78" cy="82" r="35" fill="none" stroke="#EAEEF2" stroke-width="15"/>
-  <circle cx="78" cy="82" r="35" fill="none" stroke="#D0D7DE" stroke-width="2" stroke-dasharray="3 6"/>
-  <text x="132" y="77" fill="#24292F" font-family="Segoe UI, Ubuntu, sans-serif" font-size="13" font-weight="600">No language data yet</text>
-  <text x="132" y="98" fill="#656D76" font-family="Segoe UI, Ubuntu, sans-serif" font-size="11">Appears when code is published</text>
-</svg>
+
+      <svg
+        width="410"
+        height="185"
+        viewBox="0 0 410 185"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-labelledby="descId"
+      >
+        <title id="titleId"></title>
+        <desc id="descId"></desc>
+        <style>
+          .header {
+            font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
+            fill: #2f80ed;
+            animation: fadeInAnimation 0.8s ease-in-out forwards;
+          }
+          @supports(-moz-appearance: auto) {
+            /* Selector detects Firefox */
+            .header { font-size: 15.5px; }
+          }
+          
+    @keyframes slideInAnimation {
+      from {
+        width: 0;
+      }
+      to {
+        width: calc(100%-100px);
+      }
+    }
+    @keyframes growWidthAnimation {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+    .stat {
+      font: 600 14px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; fill: #434d58;
+    }
+    @supports(-moz-appearance: auto) {
+      /* Selector detects Firefox */
+      .stat { font-size:12px; }
+    }
+    .bold { font-weight: 700 }
+    .lang-name {
+      font: 400 11px "Segoe UI", Ubuntu, Sans-Serif;
+      fill: #434d58;
+    }
+    .stagger {
+      opacity: 0;
+      animation: fadeInAnimation 0.3s ease-in-out forwards;
+    }
+    #rect-mask rect{
+      animation: slideInAnimation 1s ease-in-out forwards;
+    }
+    .lang-progress{
+      animation: growWidthAnimation 0.6s ease-in-out forwards;
+    }
+    .progress-background { fill: #ddd; }
+    
+          
+
+          
+      /* Animations */
+      @keyframes scaleInAnimation {
+        from {
+          transform: translate(-5px, 5px) scale(0);
+        }
+        to {
+          transform: translate(-5px, 5px) scale(1);
+        }
+      }
+      @keyframes fadeInAnimation {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    
+          
+        </style>
+
+        
+        <defs>
+          
+          
+        </defs>
+        
+
+        <rect
+          data-testid="card-bg"
+          class="card-bg"
+          x="0.5"
+          y="0.5"
+          rx="4.5"
+          height="99%"
+          stroke="#e4e2e2"
+          width="409"
+          fill="#fffefe"
+          stroke-opacity="0"
+        />
+
+        
+
+        <g
+          data-testid="main-card-body"
+          transform="translate(0, 25)"
+        >
+          
+    <svg data-testid="lang-items" x="25">
+      
+    <g transform="translate(0, 0)">
+      <g transform="translate(0, 0)">
+        <g transform="translate(0, 0)">
+    <g class="stagger" style="animation-delay: 450ms">
+      <circle cx="5" cy="6" r="5" fill="#3572A5" />
+      <text data-testid="lang-name" x="15" y="10" class='lang-name'>
+        Python 47.53%
+      </text>
+    </g>
+  </g><g transform="translate(0, 32)">
+    <g class="stagger" style="animation-delay: 600ms">
+      <circle cx="5" cy="6" r="5" fill="#663399" />
+      <text data-testid="lang-name" x="15" y="10" class='lang-name'>
+        CSS 27.90%
+      </text>
+    </g>
+  </g><g transform="translate(0, 64)">
+    <g class="stagger" style="animation-delay: 750ms">
+      <circle cx="5" cy="6" r="5" fill="#f1e05a" />
+      <text data-testid="lang-name" x="15" y="10" class='lang-name'>
+        JavaScript 10.45%
+      </text>
+    </g>
+  </g><g transform="translate(0, 96)">
+    <g class="stagger" style="animation-delay: 900ms">
+      <circle cx="5" cy="6" r="5" fill="#89e051" />
+      <text data-testid="lang-name" x="15" y="10" class='lang-name'>
+        Shell 9.08%
+      </text>
+    </g>
+  </g><g transform="translate(0, 128)">
+    <g class="stagger" style="animation-delay: 1050ms">
+      <circle cx="5" cy="6" r="5" fill="#e34c26" />
+      <text data-testid="lang-name" x="15" y="10" class='lang-name'>
+        HTML 5.05%
+      </text>
+    </g>
+  </g>
+      </g>
+
+      <g transform="translate(125, -45)">
+        <svg width="410" height="410">
+       <g class="stagger" style="animation-delay: 600ms">
+        <path
+          data-testid="lang-donut"
+          size="47.53"
+          d="M 148.51722036715253 212.4119117634361 A 76.66666666666666 76.66666666666666 0 0 0 136.66666666666666 60"
+          stroke="#3572A5"
+          fill="none"
+          stroke-width="12">
+        </path>
+      </g>
+      
+       <g class="stagger" style="animation-delay: 700ms">
+        <path
+          data-testid="lang-donut"
+          size="27.9"
+          d="M 60.02797994235179 134.59556190106437 A 76.66666666666666 76.66666666666666 0 0 0 148.51722036715253 212.4119117634361"
+          stroke="#663399"
+          fill="none"
+          stroke-width="12">
+        </path>
+      </g>
+      
+       <g class="stagger" style="animation-delay: 800ms">
+        <path
+          data-testid="lang-donut"
+          size="10.45"
+          d="M 77.22720243251312 88.24427650122192 A 76.66666666666666 76.66666666666666 0 0 0 60.02797994235179 134.59556190106437"
+          stroke="#f1e05a"
+          fill="none"
+          stroke-width="12">
+        </path>
+      </g>
+      
+       <g class="stagger" style="animation-delay: 900ms">
+        <path
+          data-testid="lang-donut"
+          size="9.08"
+          d="M 112.79218507497751 63.81210670981926 A 76.66666666666666 76.66666666666666 0 0 0 77.22720243251312 88.24427650122192"
+          stroke="#89e051"
+          fill="none"
+          stroke-width="12">
+        </path>
+      </g>
+      
+       <g class="stagger" style="animation-delay: 1000ms">
+        <path
+          data-testid="lang-donut"
+          size="5.05"
+          d="M 136.71483775085215 60.00001513339292 A 76.66666666666666 76.66666666666666 0 0 0 112.79218507497751 63.81210670981926"
+          stroke="#e34c26"
+          fill="none"
+          stroke-width="12">
+        </path>
+      </g>
+      </svg>
+      </g>
+    </g>
+  
+    </svg>
+  
+        </g>
+      </svg>
+    
