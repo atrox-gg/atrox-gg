@@ -125,6 +125,25 @@ jobs:
           SVG
           fi
 
+      - name: Keep language donut inside card bounds
+        shell: python
+        run: |
+          from pathlib import Path
+
+          for filename in ("profile/top-langs.svg", "profile/top-langs-light.svg"):
+              path = Path(filename)
+              svg = path.read_text(encoding="utf-8")
+              old = 'transform="translate(125, -45)"'
+              new = 'transform="translate(125, -60)"'
+
+              if old in svg:
+                  path.write_text(svg.replace(old, new, 1), encoding="utf-8")
+                  print(f"Adjusted donut position in {filename}")
+              elif 'data-testid="lang-donut"' in svg:
+                  raise SystemExit(f"Could not locate expected donut position in {filename}")
+              else:
+                  print(f"No donut chart to adjust in {filename}")
+
       - name: Commit generated profile visuals
         run: |
           git config user.name "github-actions[bot]"
