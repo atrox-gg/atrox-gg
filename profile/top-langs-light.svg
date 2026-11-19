@@ -109,13 +109,13 @@
 
         <g
           data-testid="main-card-body"
-          transform="translate(0, 25)"
+          transform="translate(0, 0)"
         >
           
     <svg data-testid="lang-items" x="25">
       
     <g transform="translate(0, 0)">
-      <g transform="translate(0, 0)">
+      <g transform="translate(0, 25)">
         <g transform="translate(0, 0)">
     <g class="stagger" style="animation-delay: 450ms">
       <circle cx="5" cy="6" r="5" fill="#3572A5" />
@@ -154,7 +154,7 @@
   </g>
       </g>
 
-      <g transform="translate(125, -57)">
+      <g transform="translate(125, -45)">
         <svg width="410" height="410">
        <g class="stagger" style="animation-delay: 600ms">
         <path
