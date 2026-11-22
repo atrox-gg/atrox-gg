@@ -1,0 +1,87 @@
+/* Static original PNG splash. Only the overlay fades; the image never moves. */
+.splash {
+  position: fixed;
+  z-index: var(--z-splash);
+  inset: 0;
+  display: none;
+  min-height: 100vh;
+  min-height: 100svh;
+  place-items: center;
+  padding:
+    calc(var(--space-6) + var(--safe-area-top))
+    calc(var(--space-4) + var(--page-gutter-end))
+    calc(var(--space-6) + var(--safe-area-bottom))
+    calc(var(--space-4) + var(--page-gutter-start));
+  overflow: hidden;
+  background: #000;
+  opacity: 1;
+  transition: opacity var(--duration-splash-fade) var(--ease-interface);
+}
+
+html.splash-enabled .splash {
+  display: grid;
+}
+
+.splash.is-leaving {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.splash__content {
+  display: grid;
+  width: 100%;
+  justify-items: center;
+  gap: clamp(var(--space-5), 3vh, var(--space-8));
+}
+
+.splash__image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(90vw, 84svh, 780px);
+  max-height: 84svh;
+  image-rendering: pixelated;
+  object-fit: contain;
+  object-position: center;
+}
+
+.splash__progress {
+  width: min(72vw, 360px);
+  height: var(--border-width-focus);
+  overflow: hidden;
+  background: var(--color-border);
+}
+
+.splash__progress-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+@media (orientation: landscape) and (max-height: 520px) {
+  .splash {
+    padding-block: calc(var(--space-3) + var(--safe-area-top)) calc(var(--space-3) + var(--safe-area-bottom));
+  }
+
+  .splash__content {
+    gap: var(--space-3);
+  }
+
+  .splash__image {
+    max-width: min(70vw, 70svh, 560px);
+    max-height: 70svh;
+  }
+
+  .splash__progress {
+    width: min(34vw, 240px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash {
+    transition: none;
+  }
+}
