@@ -8,8 +8,8 @@
 
   const translations = {
     ru: {
-      pageTitle: 'ATROX — Ресурсы',
-      description: 'Официальные профили ATROX: Telegram, GitHub, TikTok, Reddit, Spotify, SoundCloud и Pinterest.',
+      pageTitle: 'ATROX',
+      description: 'Telegram, GitHub, TikTok, Reddit, Spotify, SoundCloud и Pinterest.',
       'a11y.skip': 'Перейти к ресурсам',
       'brand.resources': 'ATROX — к ресурсам',
       'nav.label': 'Навигация',
@@ -23,8 +23,8 @@
       'resources.lolzteam': 'Профиль Lolzteam'
     },
     en: {
-      pageTitle: 'ATROX — Resources',
-      description: 'Official ATROX profiles: Telegram, GitHub, TikTok, Reddit, Spotify, SoundCloud, and Pinterest.',
+      pageTitle: 'ATROX',
+      description: 'Telegram, GitHub, TikTok, Reddit, Spotify, SoundCloud, and Pinterest.',
       'a11y.skip': 'Skip to resources',
       'brand.resources': 'ATROX — go to resources',
       'nav.label': 'Navigation',
